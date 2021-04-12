@@ -1,0 +1,35 @@
+.surrounding-container {
+   background-color: #2B4D59;
+   height: 100vh;
+   color: white;
+}
+
+.fox-green {
+   background-color: #39998E !important;
+   color: white !important;
+}
+
+.fox-red {
+   background-color: #b9300e;
+   color: white;
+}
+
+.footer {
+   position: absolute;
+   bottom: 8px;
+   margin-left: 15px;
+   color: white;
+}
+
+.fox-link {
+   text-decoration: underline;
+}
+
+.fox-link:hover {
+   cursor: pointer;
+}
+
+.fox-welcome {
+   position: relative;
+   /* right: 30px; */
+}

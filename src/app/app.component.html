@@ -1,0 +1,53 @@
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
+
+<div *ngIf="userId == null" class="w3-modal" id="loginModal">
+   <div class="w3-modal-content w3-card-4 w3-animate-zoom" style="max-width:600px; padding-bottom: 30px;">
+      <div class="w3-center"><br>
+         <h2>Login</h2>
+      </div>
+      <form class="w3-container">
+         <div>
+            <label for="email"><b>Email address</b></label>
+            <input type="text" [(ngModel)]="email" name="email" placeholder="email" class="w3-input w3-border w3-margin-bottom" required id="email">
+         </div>
+         <div *ngIf="signingUp">
+            <label for="username"><b>Username</b></label>
+            <input type="text" [(ngMpdel)]="username" name="username" placeholder="username" class="w3-input w3-border w3-margin-bottom" required>
+         </div>
+         <div>
+            <label for="pwd"><b>Password</b></label>
+            <input type="password" [(ngModel)]="password" name="pwd" placeholder="password" class="w3-input w3-border w3-margin-bottom" required id="password">
+         </div>
+         <div class="w3-container w3-center" *ngIf="!signingUp">
+            <span class="fox-link" (click)="showSignUp()">Sign Up</span>
+         </div>
+         <button (click)="signIn()" class="w3-button w3-green w3-right" *ngIf="!signingUp">Login</button>
+         <button (click)="signUp()" class="w3-button w3-green w3-right" *ngIf="signingUp">Sign Up</button>
+         <button (click)="showSignUp()" class="w3-button w3-gray w3-left" *ngIf="signingUp">Cancel</button>
+      </form>
+      <div class="w3-container">
+         <p *ngFor="let message of errorMessages">{{ message }}</p>
+      </div>
+   </div>
+</div>
+
+<div class="surrounding-container">
+   <div class="w3-container w3-padding">
+      <div class="w3-center">
+         <h1>Digital Tracker</h1>
+      </div>
+      
+      <div class="w3-center fox-welcome">
+         <h3>Hello, {{username}}</h3>
+      </div>
+   </div>
+   <div class="w3-container w3-padding-top-32">
+      <router-outlet></router-outlet>
+   </div>
+   <div class="footer">
+      <span class="w3-margin-right">Build No. {{buildNo}}</span>
+      <a href="." (click)="logout()">Logout</a>
+   </div>
+</div>

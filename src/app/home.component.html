@@ -1,0 +1,17 @@
+<div class="w3-display-container w3-margin-bottom">
+   <div class="w3-right">
+      <button class="w3-button fox-green" (click)="openModal('taskModal')">New Goal</button>
+   </div>
+</div><br /><br />
+<table class="w3-table-all goal-table w3-margin-top">
+   <tr>
+      <th>Name</th>
+      <th>Target Amount</th>
+      <th>Saved</th>
+   </tr>
+   <tr *ngFor="let goal of goals" (click)="editGoal(goal)" class="goal-row">
+      <td>{{ goal.name }}</td>
+      <td>{{ goal.target | currency }}</td>
+      <td>{{ (goal.target - goal.saved) | currency }}</td>
+   </tr>
+</table>

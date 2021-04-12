@@ -1,0 +1,10 @@
+Database:
+Goal
+* Name
+* Category
+* Target
+* Increment
+* CreatedDate
+* Icon
+* Saved
+* Completed

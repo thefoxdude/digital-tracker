@@ -1,0 +1,32 @@
+.goal-container {
+   width: 95%;
+   height: 80vh;
+   background-color: white;
+   margin: auto;
+   color: black;
+}
+
+.goal-container .w3-col {
+   height: 120px;
+}
+
+.goal-icon {
+   width: 105px;
+   margin: auto;
+   cursor: url("../assets/icons/pencil-icon2.png"), auto;
+   z-index: 5;
+   position: relative;
+   top: -107px;
+   
+}
+
+.goal-icon-finished {
+   width: 105px;
+   margin: auto;
+}
+
+canvas {
+   z-index: 1;
+   position: relative;
+   top: 2px;
+}

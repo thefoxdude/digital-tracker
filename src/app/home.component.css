@@ -1,0 +1,8 @@
+.goal-table {
+   color: black;
+}
+
+.goal-row:hover {
+   cursor: pointer;
+   background-color: #cecdcd;
+}

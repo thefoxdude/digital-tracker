@@ -1,0 +1,28 @@
+<div class="w3-container goal-container">
+   <div class="w3-center" *ngIf="!newGoal">
+      <h4>{{ goal.name }}</h4>
+      <div class="w3-padding">
+         <h5>{{ goal.target | currency}}</h5>
+      </div>
+      <div class="w3-row-padding">
+         <div *ngFor="let increment of goal.increments; let i = index" class="w3-col s2 w3-padding">
+            <div *ngIf="increment.completed">
+               <img src="../assets/icons/filled-circle.jpg" class="goal-icon-finished">
+            </div>
+            <div *ngIf="!increment.completed">
+               <canvas id="canvas{{i}}" width="100" height="100" style="margin: auto; border: 1px solid black;">
+
+               </canvas>
+               <img src="../assets/icons/empty-circle.png" class="goal-icon"
+               (mousemove)="ev_canvas($event, i)" (mousedown)="ev_canvas($event, i)" (mouseup)="ev_canvas($event, i)">
+            </div>
+         </div>
+      </div>
+      
+   </div>
+</div>
+<!-- <canvas id="canvas" width="100" height="100" style="margin: auto; border: 1px solid black;"
+(mousemove)="ev_canvas($event)" (mousedown)="ev_canvas($event)" (mouseup)="ev_canvas($event)"
+(touchstart)="ev_canvas($event)" (touchmove)="ev_canvas($event)" (touchend)="ev_canvas($event)">
+
+</canvas> -->
