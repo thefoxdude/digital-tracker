@@ -39,15 +39,17 @@ export class DatabaseService {
       return this.objectsUsers$;
    }
 
-   async updateGoal(task: Goal) {
+   async updateGoal(goal: Goal) {
       console.log('updated');
-      // this.db.collection('tasks').doc(task.id).set({
-      //    taskName: task.taskName,
-      //    details: task.details,
-      //    updatedDate: task.updatedDate,
-      //    completed: task.completed,
-      //    column: task.column
-      // }, {merge: true});
+      this.db.collection('goals').doc(goal.id).set({
+         category: goal.category,
+         completed: goal.completed,
+         icon: goal.icon,
+         increment: goal.increment,
+         name: goal.name,
+         saved: goal.saved,
+         target: goal.target
+      }, {merge: true});
    }
 
    async saveNewGoal(goal: Goal) {

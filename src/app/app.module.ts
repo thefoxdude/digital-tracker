@@ -16,13 +16,15 @@ import { GoalComponent } from './goal.component';
 import { AppRoutingModule } from './app-routing.module';
 import { HomeComponent } from './home.component';
 import { SharedService } from './services/SharedService.service';
+import { NewGoalComponent } from './new-goal.component';
 
 
 @NgModule({
    declarations: [
       AppComponent,
       GoalComponent,
-      HomeComponent
+      HomeComponent,
+      NewGoalComponent
    ],
    imports: [
       BrowserModule,

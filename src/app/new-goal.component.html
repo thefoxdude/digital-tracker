@@ -1,0 +1,37 @@
+<div class="w3-container goal-container">
+   <img src="../assets/icons/house-icon.jpg" class="home-icon" (click)="goHome()">
+   <div class="w3-center">
+      <form class="w3-container goal-form">
+         <div>
+            <label for="name">Goal:</label>
+            <input type="text" [(ngModel)]="goal.name" id="name" name="name"
+            placeholder="Goal Name" class="w3-input w3-border w3-margin-bottom" required>
+         </div>
+         <div>
+            <label for="category">Category:</label>
+            <select [(ngModel)]="goal.category" id="category" name="category" class="w3-select w3-border">
+               <option></option>
+               <option *ngFor="let cateogry of categories | keyvalue" [ngValue]="category.value">{{ category.value }}</option>
+            </select>
+         </div>
+         <div>
+            <label for="details">Icon:</label>
+            <div class="w3-border w3-container">
+
+            </div>
+         </div>
+         <div>
+            <label for="target">Target Amount:</label>
+            <input type="text" [(ngModel)]="goal.target" id="target" name="target"
+            placeholder="0.00" class="w3-input w3-border w3-margin-bottom fox-currency" required>
+         </div>
+         <div>
+            <label for="increment">Increment:</label>
+            <input type="text" [(ngModel)]="goal.increment" id="increment" name="increment"
+            placeholder="0.00" class="w3-input w3-border w3-margin-bottom fox-currency" required>
+         </div>
+         <button (click)="saveToDatabase()" class="w3-button fox-green w3-right w3-margin-top">Create</button>
+         <!-- <button (click)="updateTask(currentTask)" *ngIf="currentTask.id != null" class="w3-button fox-green w3-right w3-margin-top">Update</button> -->
+      </form>
+   </div>
+</div>

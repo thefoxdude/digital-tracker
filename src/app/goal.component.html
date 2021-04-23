@@ -1,5 +1,6 @@
 <div class="w3-container goal-container">
-   <div class="w3-center" *ngIf="!newGoal">
+   <img src="../assets/icons/house-icon.jpg" class="home-icon" (click)="goHome()">
+   <div class="w3-center">
       <h4>{{ goal.name }}</h4>
       <div class="w3-padding">
          <h5>{{ goal.target | currency}}</h5>
@@ -10,7 +11,7 @@
                <img src="../assets/icons/filled-{{goal.icon}}.jpg" class="goal-icon-finished">
                <h5>{{ goal.increment | currency }}</h5>
             </div>
-            <div *ngIf="!increment.completed">
+            <div *ngIf="!increment.completed" class="canvas-container">
                <canvas id="canvas{{i}}" width="100" height="100" style="margin: auto; border: 1px solid black;">
 
                </canvas>

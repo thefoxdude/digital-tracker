@@ -4,11 +4,6 @@
    color: white;
 }
 
-.fox-green {
-   background-color: #39998E !important;
-   color: white !important;
-}
-
 .fox-red {
    background-color: #b9300e;
    color: white;
@@ -31,5 +26,4 @@
 
 .fox-welcome {
    position: relative;
-   /* right: 30px; */
 }

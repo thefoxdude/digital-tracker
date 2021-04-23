@@ -13,3 +13,14 @@ export class Goal {
    completed: boolean;
    increments: GoalIncrement[];
 }
+
+export enum GoalCategories {
+   Vacation = "Vacation",
+   Debt = "Debt",
+   Sinking_Fund = 'Sinking Fund'
+}
+
+export class Icon {
+   name: string;
+   url: string;
+}

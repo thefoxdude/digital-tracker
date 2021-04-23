@@ -5,7 +5,7 @@ import { Observable } from 'rxjs';
 import { AuthenticationService } from './services/AuthenticationService.service';
 import { DatabaseService } from './services/DatabaseService.service';
 import { SharedService } from './services/SharedService.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { GoalIncrement } from './objects/goalIncrement';
 
 
@@ -18,27 +18,27 @@ import { GoalIncrement } from './objects/goalIncrement';
 export class GoalComponent implements OnInit, AfterViewInit {
    goal: Goal;
    goalId: string;
-   newGoal: boolean;
    pos = { x: 0, y: 0};
    ctx: any;
    drawStarted: boolean = false;
 
-   constructor(private sharedService: SharedService, private route: ActivatedRoute, private dbSerivce: DatabaseService) {
+   constructor(private sharedService: SharedService, private route: ActivatedRoute, private dbSerivce: DatabaseService, private router: Router) {
       this.goal = new Goal();
    }
 
    ngOnInit() {
       this.route.params.subscribe(params => {
          this.goalId = params['id'];
-         if (this.goalId != 'new') {
+         if (this.goalId != null || this.goalId != undefined) {
             this.dbSerivce.getGoal(this.goalId).subscribe(result => {
                console.log(result.data())
                this.goal = result.data();
-               this.newGoal = false;
+               this.goal.id = this.goalId;
                this.calculateGoal();
             });
          } else {
-            this.newGoal = true;
+            //TODO: Add error logic for failed goal
+            console.log("Something went wrong");
          }
          console.log(this.goalId);
       });
@@ -97,6 +97,7 @@ export class GoalComponent implements OnInit, AfterViewInit {
          this.draw(e);
          this.drawStarted = false;
          this.goal.saved += this.goal.increment;
+         this.dbSerivce.updateGoal(this.goal);
          this.calculateGoal();
       }
    }
@@ -125,5 +126,10 @@ export class GoalComponent implements OnInit, AfterViewInit {
       }
 
       //TODO: Allow for touch
+   }
+
+   goHome() {
+      console.log("here");
+      this.router.navigate(['/']);
    }
 }

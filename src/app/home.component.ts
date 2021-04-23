@@ -192,4 +192,8 @@ export class HomeComponent implements AfterViewInit {
       this.sharedService.setSelectedGoal(goal);
       this.router.navigate(['/goal/' + goal.id], { queryParamsHandling: "merge" });
    }
+
+   newTask() {
+      this.router.navigate(['/new-goal'], { queryParamsHandling: "merge" });
+   }
 }

@@ -1,9 +1,23 @@
 .goal-container {
    width: 95%;
-   height: 80vh;
+   height: 75vh;
+   overflow-y: scroll;
    background-color: white;
    margin: auto;
    color: black;
+}
+
+.home-icon {
+   width: 40px;
+   float: left;
+   position: absolute;
+   top: 80px;
+   left: 80px;
+   background-color: #2B4D59;
+}
+
+.home-icon:hover {
+   cursor: pointer;
 }
 
 .goal-container .w3-col {
@@ -34,4 +48,9 @@ canvas {
 .goal-increment-title {
    position: relative;
    top: -107px;
+}
+
+.canvas-container {
+   max-width: 110px;
+   margin: auto;
 }
